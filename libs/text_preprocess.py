@@ -166,6 +166,15 @@ def stop_and_lemmatize(word_list):
         
     return(lm_words)
 
+
+def lemmatize(word):
+    for pos in ['n', 'v', 'r', 'a', 's']:
+        lm = lem.lemmatize(word, pos)
+        if lm != word:
+           word = lm
+           break
+    return word
+
 def clean_text(text):
     start_time=time.time()
     text = fix_bad_wording(text)
